@@ -14,17 +14,24 @@
     
     - name: Install Mysql database
       apt: 
-        name: "{{item}}" 
+        pkg:
+          - mysql-server
+          - mysql-client
         state: present
-      with_items:
-        - mysql-server
-        - mysql-client
+        autoclean: yes   
+
     
     - name: Start MySQL Service
       service:
         name: mysql
         state: started
         enabled: yes
+    
+    - name: Make sure pymysql is present
+      become: true # needed if the other tasks are not played as root
+      pip:
+        name: pymysql
+        state: present    
 
     - name: Create Application Database
       mysql_db:
