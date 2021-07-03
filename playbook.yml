@@ -31,6 +31,7 @@
       apt:
         pkg:
          - python3-mysqldb
+         - pymysql
         state: latest  
 
     - name: Create Application Database
