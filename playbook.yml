@@ -16,10 +16,11 @@
     
     - name: Install Mysql database
       apt: 
-        name: "{{item}}" state=installed
-          with_items:
-            - mysql-server
-            - mysql-client
+        name: "{{item}}" 
+        state: installed
+        with_items:
+          - mysql-server
+          - mysql-client
     
     - name: Start MySQL Service
       service:
@@ -41,10 +42,11 @@
 
     - name: Install Python Flask Dependeces
       pip:
-        name: {{item}} state=present
-      with_items: 
-        - flask
-        - flask-mysql      
+        name: {{item}} 
+        state: present
+        with_items: 
+          - flask
+          - flask-mysql      
     
     - name: Copy source Code
       copy: src=app.py dest=/opt/app.py
