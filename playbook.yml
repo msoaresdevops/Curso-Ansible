@@ -11,6 +11,7 @@
           - python3-pip
           - python3-gunicorn
           - gunicorn3
+          - python-devel
         state: present
         autoclean: yes
     
@@ -49,7 +50,12 @@
       apt:
         pkg:
           - python-pip
-        state: present  
+        state: present
+
+    - name: Mysql Python Install
+      pip:
+        name: mysql-python
+        state: present      
 
     - name: Install flask
       pip: 
