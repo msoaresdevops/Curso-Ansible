@@ -58,9 +58,7 @@
 
     - name: Install flask Mysql
       pip: 
-        name: 
-          - flask-mysql
-          - markupsafe
+        name: markupsafe
         state: present          
     
 
