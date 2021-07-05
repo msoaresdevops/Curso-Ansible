@@ -56,10 +56,15 @@
         name: flask
         state: present
 
-    - name: Install flask Mysql
+    - name: Install markupsafe
       pip: 
         name: markupsafe
-        state: present          
+        state: present
+
+    - name: Install Flask MySQL
+      pip: 
+        name: flask-mysql
+        state: present              
     
 
     - name: Copy source Code
