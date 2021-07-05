@@ -49,8 +49,9 @@
         state: present  
 
     - name: Install flask
-      pip: name=flask
-      state: present    
+      pip: 
+        name: flask
+        state: present    
     
 
     - name: Copy source Code
