@@ -11,24 +11,13 @@
         state: present
         autoclean: yes
     
-    - name: Install pymssql using pip
-      when:
-        - ansible_system == 'Linux'
-      pip:
-        name: pymssql
-        state: latest
-      tags:
-        - linux
-        - python
-        - pip
-        - mssql
-        - pymssql
     
     - name: Install Mysql database
       apt: 
         pkg:
           - mysql-server
           - mysql-client
+          - python-mysqldb
         state: present
         autoclean: yes   
 
