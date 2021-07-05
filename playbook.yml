@@ -52,10 +52,10 @@
           - python-pip
         state: present
 
-    - name: Mysql Python Install
+    - name: Update setuptools
       pip:
-        name: mysql-python
-        state: present      
+        name: setuptools
+        extra_args: --upgrade      
 
     - name: Install flask
       pip: 
