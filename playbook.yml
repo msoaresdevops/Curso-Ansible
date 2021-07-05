@@ -11,7 +11,7 @@
           - python3-pip
           - python3-gunicorn
           - gunicorn3
-          - python-devel
+        
         state: present
         autoclean: yes
     
