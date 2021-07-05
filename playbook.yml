@@ -49,13 +49,10 @@
         state: present  
 
     - name: Install flask
-      pip:
-        name:
-          - flask
-          - flask-mysql
-        state: present    
+      pip: name=flask
+      state: present    
     
-    
+
     - name: Copy source Code
       copy: src=app.py dest=/opt/app.py
       
