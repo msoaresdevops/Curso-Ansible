@@ -27,12 +27,7 @@
         state: started
         enabled: yes
     
-    - name: "Install ansible python3 mysql dependency"
-      apt:
-        pkg:
-         - python3-mysqldb
-         - pymysql
-        state: latest  
+ 
 
     - name: Create Application Database
       mysql_db:
