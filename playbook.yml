@@ -7,10 +7,10 @@
           - python
           - python-setuptools
           - python-dev
-          - build-essential
-          - python-pip
+          - build-essential        
         state: present
         autoclean: yes
+    
     - name: Make sure pymysql is present
       become: true # needed if the other tasks are not played as root
       pip:
