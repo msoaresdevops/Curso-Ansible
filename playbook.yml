@@ -14,67 +14,7 @@
         
         state: present
         autoclean: yes
+    - include: tasks/deploy_db.yml
+    - include: tasks/deploy_web.yml    
     
     
-    - name: Install Mysql database
-      apt: 
-        pkg:
-          - mysql-server
-          - mysql-client
-          - python-mysqldb
-        state: present
-        autoclean: yes   
-
-    
-    - name: Start MySQL Service
-      service:
-        name: mysql
-        state: started
-        enabled: yes
-    
- 
-
-    - name: Create Application Database
-      mysql_db:
-        name: employee_db state=present  
-
-    - name: Create database user
-      mysql_user:
-        name: db_user
-        password: Passw0rd
-        priv: '*.*:ALL'
-        state: present
-        host: '%'
-
-    - name: Install pip
-      apt:
-        pkg:
-          - python-pip
-        state: present
-
-    - name: Update setuptools
-      pip:
-        name: setuptools
-        extra_args: --upgrade      
-
-    - name: Install flask
-      pip: 
-        name: flask
-        state: present
-
-    - name: Install markupsafe
-      pip: 
-        name: markupsafe
-        state: present
-
-    - name: Install Flask MySQL
-      pip: 
-        name: flask-mysql
-        state: present              
-    
-
-    - name: Copy source Code
-      copy: src=app.py dest=/opt/app.py
-      
-    - name: Start Web Server
-      shell:   FLASK_APP=app.py flask run --host=0.0.0.0
