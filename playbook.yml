@@ -1,20 +1,10 @@
-- name: Deploy a web applicatin
-  hosts: db_and_web_server1, db_and_web_server2
-  tasks:
-    - name: Install all required dependencies
-      apt: 
-        pkg:
-          - python
-          - python-setuptools
-          - python-dev
-          - build-essential
-          - python3-pip
-          - python3-gunicorn
-          - gunicorn3
+---
+
+    - name: Deploy a web applicatin
+      hosts: db_and_web_server1, db_and_web_server2
+      roles:
+        - python
+        - mysql_db
+        - flask_web
         
-        state: present
-        autoclean: yes
-    - include: tasks/deploy_db.yml
-    - include: tasks/deploy_web.yml    
-    
-    
+        

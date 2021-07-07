@@ -1,0 +1,14 @@
+---
+    - name: Install all required dependencies
+      apt: 
+        pkg:
+          - python
+          - python-setuptools
+          - python-dev
+          - build-essential
+          - python3-pip
+          - python3-gunicorn
+          - gunicorn3
+        
+        state: present
+        autoclean: yes
